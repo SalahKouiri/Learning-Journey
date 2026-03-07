@@ -121,4 +121,4 @@ This week marked the beginning of my hands-on IoT journey with my lab mentor. I 
 ---
 
 ## Reflection
-This week exceeded my expectations in practical application. Moving from theoretical coursework to hands-on implementation within a single week demonstrated the power of guided learning. The mentor's approach of introducing problems and having me find solutions (like the MQTT pivot when cable connection failed) accelerated my understanding of IoT ecosystems.
+This week exceeded my expectations in practical application. Moving from theoretical coursework to hands-on implementation within a single week demonstrated the power of guided learning. The mentor's approach of introducing problems and having me find solutions accelerated my understanding of IoT ecosystems.
