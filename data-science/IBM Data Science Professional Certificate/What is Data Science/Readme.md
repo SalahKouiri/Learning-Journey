@@ -118,3 +118,7 @@ This course provides an introduction to the field of **Data Science**, including
 ### Data Architecture
 - Considerations for Choice of Data Repository
 - Data Integration Platforms
+
+---
+
+<img width="771" height="626" alt="image" src="https://github.com/user-attachments/assets/3b8cd460-fd6b-4844-942f-80571229ac62" />
