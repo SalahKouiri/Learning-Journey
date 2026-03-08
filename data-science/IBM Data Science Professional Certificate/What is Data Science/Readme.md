@@ -121,4 +121,4 @@ This course provides an introduction to the field of **Data Science**, including
 
 ---
 
-<img width="771" height="626" alt="image" src="https://github.com/user-attachments/assets/3b8cd460-fd6b-4844-942f-80571229ac62" />
+<img width="1093" height="836" alt="image" src="https://github.com/user-attachments/assets/c0abc305-fe1d-47e5-9a9c-8898775593cb" />
