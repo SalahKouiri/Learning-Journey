@@ -16,7 +16,7 @@
 
 5. Install Ubuntu 22.04
 
-`wsl --install -d Ubuntu-22.04`
+`wsl --install -d Ubuntu-24.04`
 
 6. Create your **username and password**
 
