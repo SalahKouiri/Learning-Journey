@@ -19,7 +19,7 @@ The goal of these notes is to document key concepts, commands, and experiments r
 11. ROS Workspace  
 12. Build ROS Packages with Colcon  
 13. Create ROS Packages with Colcon  
-14. Create Publisher and Subscriber ROS Package in C++  
+14. Create Publisher and Subscriber ROS Package in C++  (im going to stop here until later)
 15. Create Publisher and Subscriber ROS Package in Python  
 16. Launch Files to Run ROS Nodes and ROS Commands  
 17. URDF Files to Describe Any Robot in ROS  
