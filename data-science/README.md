@@ -24,6 +24,7 @@ The idea is **not to follow everything strictly in order**, but to work on diffe
 The main learning resources for this phase include:
 
 - **IBM Data Science Professional Certificate**
+- **Advanced Statistics for Data Science Specialization**
 - **Data Visualization: Fundamentals to Interactive Storytelling Specialization**
 - **Learn SQL Basics for Data Science Specialization**
 - **Data Wrangling with Python Specialization**
@@ -31,6 +32,7 @@ The main learning resources for this phase include:
 These programs cover topics such as:
 
 - Python for data analysis
+- Statistics and probability for data science
 - Data visualization
 - SQL and databases
 - Data cleaning and transformation
