@@ -1,5 +1,8 @@
 # LIMO Web Control Dashboard
 
+<img width="1200" height="1600" alt="image" src="https://github.com/user-attachments/assets/6f481219-88dc-42c6-9f37-4f932ac8761c" />
+
+
 This project explores the development of a **web-based control dashboard** for the **AgileX LIMO robot** during my internship at **LPRI (Laboratoire Pluridisciplinaire de Recherche et Innovation)** at EMSI.
 
 The goal is to build a browser-based interface that allows a user to **monitor and control the robot** without relying on the official control application.
