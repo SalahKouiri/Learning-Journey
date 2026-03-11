@@ -121,5 +121,6 @@ A simple web interface prototype was developed using **HTML, CSS, and JavaScript
 </html>
 ```
 ---
+### GIF : 
 
 ![20260311-0255-59 0982958](https://github.com/user-attachments/assets/71ff9877-3846-49e7-9155-099fd2400b99)
