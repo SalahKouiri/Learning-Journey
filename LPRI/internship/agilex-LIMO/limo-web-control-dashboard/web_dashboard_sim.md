@@ -519,7 +519,8 @@ now the last step was setting up the camera display , just like the other topics
 ```
 and it looked like this :
 
-<img width="600" height="375" alt="image" src="https://github.com/user-attachments/assets/df002103-7af9-46f3-98b0-c754a52bc27e" />
+
+![Video Project 1](https://github.com/user-attachments/assets/1e8e0f9c-c1d8-4ecf-aef0-733f118b9e8f)
 
 
 
