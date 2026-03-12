@@ -81,7 +81,8 @@ and to get the webpage adress i used : `webpage_address`
 
 and it looks like this : 
 
-(image of the webpage)
+<img width="1109" height="570" alt="image" src="https://github.com/user-attachments/assets/40c85fcf-4e49-4b4f-aba1-8a647f6eacdd" />
+
 
 and in order to get the rosbridge address it s similar to the webpage address , you need to use : ` rosbridge_address `
 
@@ -89,7 +90,8 @@ so now when you enter the rosbridge address and click connect the connection get
 
 now that we have a successful connection , we want to get some data from our ros topics , if you run `ros2 topic list` , you will see that we have many types of data that we can visualise .
 
-(image of topic list)
+<img width="795" height="1097" alt="image" src="https://github.com/user-attachments/assets/b744ba29-87ff-40a1-abea-dc41ff347fba" />
+
 
 so the first thing i wanted to show was the position x,y of the robot , so i used /odom topic the odometry topic , so we specify the topic i called it odomtopic , passed the ros object the name of the topic and the message type , then we subscribe using .subscrive and add a callbackfunciton and after that i displayed position-x , position-y , and added a bit of styling , and the second code looked like this : 
 ```
@@ -189,7 +191,7 @@ so the first thing i wanted to show was the position x,y of the robot , so i use
 
 and the updated page looked like this : 
 
-(webpage image) 
+<img width="1100" height="482" alt="image" src="https://github.com/user-attachments/assets/30a6ae36-57e9-4a5c-8d19-7ffff4b3b235" />
 
 now if i moved the robot with a command the odom data updates in real time in the webpage , but it would be much nicer to control it from the webpage , so that was the next step , 
 i chose the joystick way because it s the most intiutive way , and i used a small library called nippleJS (https://github.com/yoannmoinet/nipplejs)
@@ -345,7 +347,9 @@ so i included it and i set up a new topic called cmdVELTopic just like the odomt
 </html>
 ```
 and it looks like this : 
-(image)
+
+<img width="1102" height="579" alt="image" src="https://github.com/user-attachments/assets/c17e88d9-1a63-418d-bc2d-c03004485a6a" />
+
 
 now the last step was setting up the camera display , just like the other topics we setup the imagetopic , name message type and subscribe to the topic and add a function callback to display th thing , add some styling and here is the final code : 
 
@@ -520,7 +524,8 @@ now the last step was setting up the camera display , just like the other topics
 and it looked like this :
 
 
-![Video Project 1](https://github.com/user-attachments/assets/1e8e0f9c-c1d8-4ecf-aef0-733f118b9e8f)
+
+![Video Project 1](https://github.com/user-attachments/assets/584b91eb-c73e-4152-a735-e3091c7cdc55)
 
 
 
