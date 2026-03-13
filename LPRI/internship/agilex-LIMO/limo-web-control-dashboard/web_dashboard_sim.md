@@ -11,6 +11,8 @@ first you need to install the rosbridge server , you can do that with : `sudo ap
 
 then you can start the server with : `ros2 launch rosbridge_server main_rosbridge_launch.py`
 
+in the real system i used this instead : `ros2 launch rosbridge_server rosbridge_websocket_launch.xml`
+
 now that we know how we will connect the web dashboard and the ros system the next thing is to start building the dashboard , so created the folder webpage_ws and the file index.html , and i use roslibjs to connect to rosbridge , and i added a placeholder for the adress of the rosbridge and a button connect , so it will establish the connection between the webpage and the machine 
 here is the first code : 
 ```
