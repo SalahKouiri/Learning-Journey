@@ -1,4 +1,7 @@
 So here is the final local version : 
+
+
+
 first thing you need to do is
 ` cd ~/limo_ros2_ws ` then : 
 `source /opt/ros/foxy/setup.bash `
@@ -545,5 +548,7 @@ and thats  it , after that you go on the browser , and write : `http://172.20.43
 you can get the ip address with `hostname -I`
 
 and that s it . next upgrade will be to try and make it not local (same wifi)
+
+
 
 
