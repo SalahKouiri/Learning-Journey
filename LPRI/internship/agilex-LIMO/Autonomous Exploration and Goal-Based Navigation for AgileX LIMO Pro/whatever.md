@@ -1,4 +1,4 @@
-Absolutely. Here’s a quick **work report / restart sheet** for tomorrow.
+
 
 ---
 
@@ -428,5 +428,4 @@ Then after that:
 
 ---
 
-If you want tomorrow, start by saying:
-**“Continue from the end of Block B. Let’s build a small easy map and save it.”**
+
