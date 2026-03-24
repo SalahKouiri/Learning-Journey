@@ -1,5 +1,3 @@
-Yes — here’s a short direct report/guide.
-
 # Report — From SLAM Mapping to Saved Map and First AMCL Localization Attempt
 
 ## Goal
@@ -279,4 +277,4 @@ Resume with:
 6. test small motion
 7. confirm `/amcl_pose`
 
-If you want, I can turn this into an even cleaner **lab-note style checklist** you can reuse every time.
+
