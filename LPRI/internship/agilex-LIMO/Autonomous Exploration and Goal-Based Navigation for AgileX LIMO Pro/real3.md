@@ -50,3 +50,12 @@ The system is in a **"Partial Freeze"** state. The global map is visible, and ra
 2.  **Lifecycle Debug:** Verify why costmap services are "waiting to become available" using `ros2 lifecycle get /controller_server`.
 3.  **TF Check:** Validate the transform tree (`map -> odom -> base_link -> laser_link`) for high-frequency jitter or lag during movement.
 4.  **Hand Test (Lidar-only):** Confirm if bubbles move when the camera is removed from the equation.
+
+
+
+`ros2 launch limo_bringup limo_start.launch.py`
+`ros2 launch orbbec_camera dabai.launch.py`
+`ros2 launch limo_bringup limo_rtab_slam.launch.py localization:=true `
+`ros2 launch limo_bringup limo_rtab_nav2_diff.launch.py `
+
+
