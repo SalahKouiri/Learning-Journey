@@ -22,3 +22,78 @@ bruh :
 <script src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/ros2d@0.10.0/build/ros2d.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.min.js"></script>
+
+-----------------------------
+
+function setupMap() {
+            document.getElementById('map-view').innerHTML = ""; 
+            
+            mapViewer = new ROS2D.Viewer({
+                divID : 'map-view',
+                width : document.getElementById('map-view').clientWidth,
+                height : 450
+            });
+
+            // explicitly define the topic just in case default fails
+            gridClient = new ROS2D.OccupancyGridClient({
+                ros : ros,
+                rootObject : mapViewer.scene,
+                topic: '/map', 
+                continuous: true
+            });
+
+            gridClient.on('change', function(){
+                console.log("🟢 SUCCESS: Map rendered! Width:", gridClient.currentGrid.width);
+                mapViewer.scaleToDimensions(gridClient.currentGrid.width, gridClient.currentGrid.height);
+                mapViewer.shift(gridClient.currentGrid.pose.position.x, gridClient.currentGrid.pose.position.y);
+            });
+
+            // --- THE WIRETAP (DEBUGGING) ---
+            let mapDebugTopic = new ROSLIB.Topic({
+                ros: ros,
+                name: '/map',
+                messageType: 'nav_msgs/OccupancyGrid'
+            });
+            
+            console.log("📡 Listening for raw map data...");
+            mapDebugTopic.subscribe(function(message) {
+                console.log("📦 RAW MAP MESSAGE RECEIVED! Resolution:", message.info.resolution);
+                console.log("📊 Is data a string (Base64) or array?", typeof message.data);
+                mapDebugTopic.unsubscribe(); // Stop listening after we get it once
+            });
+            // --------------------------------
+
+            // RViz Mouse Controls
+            mapViewer.scene.addEventListener('stagemousedown', function(event) {
+                if(interactionMode === 'view') return;
+                mouseDownPos = mapViewer.scene.globalToRos(event.stageX, event.stageY);
+            });
+
+            mapViewer.scene.addEventListener('stagemouseup', function(event) {
+                if(interactionMode === 'view' || !mouseDownPos) return;
+                
+                const mouseUpPos = mapViewer.scene.globalToRos(event.stageX, event.stageY);
+                const dx = mouseUpPos.x - mouseDownPos.x;
+                const dy = mouseUpPos.y - mouseDownPos.y;
+                
+                let yaw = 0;
+                if(Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
+                    yaw = Math.atan2(dy, dx);
+                }
+
+                const quaternion = {
+                    x: 0.0, y: 0.0,
+                    z: Math.sin(yaw / 2.0),
+                    w: Math.cos(yaw / 2.0)
+                };
+
+                if(interactionMode === 'pose') {
+                    sendInitialPose(mouseDownPos.x, mouseDownPos.y, quaternion);
+                } else if (interactionMode === 'goal') {
+                    sendGoalPose(mouseDownPos.x, mouseDownPos.y, quaternion);
+                }
+
+                mouseDownPos = null;
+                setInteraction('view'); 
+            });
+        }
