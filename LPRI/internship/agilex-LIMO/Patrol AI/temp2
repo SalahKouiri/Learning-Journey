@@ -1,0 +1,72 @@
+function setupMap() {
+            document.getElementById('map-view').innerHTML = ""; 
+            
+            mapViewer = new ROS2D.Viewer({
+                divID : 'map-view',
+                width : document.getElementById('map-view').clientWidth,
+                height : 450
+            });
+
+            let currentGrid = null;
+
+            // 🛑 THE RAW OVERRIDE: Bypassing the broken Foxy compressors entirely.
+            let mapTopic = new ROSLIB.Topic({
+                ros : ros,
+                name : '/map',
+                messageType : 'nav_msgs/OccupancyGrid',
+                compression : 'none' // Force raw JSON data
+            });
+
+            mapTopic.subscribe(function(message) {
+                console.log("🟢 SUCCESS: Raw map array arrived! Rendering...");
+                
+                // 1. Remove the old map frame if it exists
+                if (currentGrid) {
+                    mapViewer.scene.removeChild(currentGrid);
+                }
+
+                // 2. Build the new map frame manually from the raw array
+                currentGrid = new ROS2D.OccupancyGrid({
+                    message : message
+                });
+                
+                // 3. Put it on the canvas
+                mapViewer.scene.addChild(currentGrid);
+                mapViewer.scaleToDimensions(currentGrid.width, currentGrid.height);
+                mapViewer.shift(currentGrid.pose.position.x, currentGrid.pose.position.y);
+            });
+
+            // RViz Mouse Controls
+            mapViewer.scene.addEventListener('stagemousedown', function(event) {
+                if(interactionMode === 'view') return;
+                mouseDownPos = mapViewer.scene.globalToRos(event.stageX, event.stageY);
+            });
+
+            mapViewer.scene.addEventListener('stagemouseup', function(event) {
+                if(interactionMode === 'view' || !mouseDownPos) return;
+                
+                const mouseUpPos = mapViewer.scene.globalToRos(event.stageX, event.stageY);
+                const dx = mouseUpPos.x - mouseDownPos.x;
+                const dy = mouseUpPos.y - mouseDownPos.y;
+                
+                let yaw = 0;
+                if(Math.abs(dx) > 0.01 || Math.abs(dy) > 0.01) {
+                    yaw = Math.atan2(dy, dx);
+                }
+
+                const quaternion = {
+                    x: 0.0, y: 0.0,
+                    z: Math.sin(yaw / 2.0),
+                    w: Math.cos(yaw / 2.0)
+                };
+
+                if(interactionMode === 'pose') {
+                    sendInitialPose(mouseDownPos.x, mouseDownPos.y, quaternion);
+                } else if (interactionMode === 'goal') {
+                    sendGoalPose(mouseDownPos.x, mouseDownPos.y, quaternion);
+                }
+
+                mouseDownPos = null;
+                setInteraction('view'); 
+            });
+        }
