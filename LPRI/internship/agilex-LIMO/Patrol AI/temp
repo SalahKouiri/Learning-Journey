@@ -1,0 +1,7 @@
+bruh : 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/eventemitter2/6.4.9/eventemitter2.min.js"></script>   
+<script src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/nipplejs/0.9.0/nipplejs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/EaselJS/1.0.2/easeljs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/ros2d@0.10.0/build/ros2d.js"></script>
